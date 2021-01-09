@@ -3,6 +3,7 @@ const path = require('path');
 const app = express();
 const bodyParser = require("body-parser");
 const { rejects } = require('assert');
+require('dotenv').config();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -15,7 +16,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/location', (req, res) => {
-    console.log('posted the location: ', req.body);
+    console.log('posted the location: ', req.body.search_query);
     res.render('location');
 });
 
